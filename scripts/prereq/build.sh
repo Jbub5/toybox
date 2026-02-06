@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BUILD='cc -funsigned-char -I scripts/prereq -I . -Os -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-strict-aliasing -DTOYBOX_VERSION=""'
+BUILD='cc -funsigned-char -I scripts/prereq -I . -O2 -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-strict-aliasing -DTOYBOX_VERSION=""'
 LINK=''
 FILES="
 main.c toys/lsb/gzip.c toys/other/readlink.c toys/other/which.c 

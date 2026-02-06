@@ -21,7 +21,7 @@ make toybox
 cat > scripts/prereq/build.sh << 'EOF'
 #!/bin/sh
 
-BUILD='cc -funsigned-char -I scripts/prereq -I . -Os -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-strict-aliasing -DTOYBOX_VERSION=""'
+BUILD='cc -funsigned-char -I scripts/prereq -I . -O2 -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-strict-aliasing -DTOYBOX_VERSION=""'
 LINK=''
 EOF
 grep -A999 FILES= generated/build.sh >> scripts/prereq/build.sh

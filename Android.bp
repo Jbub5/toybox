@@ -442,8 +442,30 @@ cc_defaults {
     name: "toybox-defaults",
     srcs: all_srcs,
 
+    ldflags: [
+        "-Wl,-mllvm,-polly",
+        "-Wl,-mllvm,-polly-ast-use-context",
+        "-Wl,-mllvm,-polly-invariant-load-hoisting",
+        "-Wl,-mllvm,-polly-loopfusion-greedy=1",
+        "-Wl,-mllvm,-polly-postopts=1",
+        "-Wl,-mllvm,-polly-reschedule=1",
+        "-Wl,-mllvm,-polly-run-inliner",
+        "-Wl,-mllvm,-polly-vectorizer=stripmine",
+        "-Wl,-mllvm,-polly-run-dce",
+    ],
+
     cflags: [
-        "-Os",
+        "-mllvm -polly",
+        "-mllvm -polly-ast-use-context",
+        "-mllvm -polly-invariant-load-hoisting",
+        "-mllvm -polly-loopfusion-greedy=1",
+        "-mllvm -polly-postopts=1",
+        "-mllvm -polly-reschedule=1",
+        "-mllvm -polly-run-inliner",
+        "-mllvm -polly-vectorizer=stripmine",
+        "-mllvm -polly-run-dce",
+
+        "-O2",
         "-Wall",
         "-Werror",
         "-Wno-char-subscripts",
